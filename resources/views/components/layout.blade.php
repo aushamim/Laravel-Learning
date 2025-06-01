@@ -22,13 +22,13 @@
             <ul
                 class="font-medium flex flex-col mt-4 border md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                 <li>
-                    <x-nav-link href="/">Home</x-nav-link>
+                    <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                 </li>
                 <li>
-                    <x-nav-link href="/about">About</x-nav-link>
+                    <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
                 </li>
                 <li>
-                    <x-nav-link href="/contact">Contact</x-nav-link>
+                    <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
                 </li>
             </ul>
         </div>
