@@ -12,6 +12,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/jobs/{id}', function () {
+    return view('jobs');
+});
+
 Route::get('/about', function () {
     return view('about');
 });
