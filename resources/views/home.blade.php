@@ -2,7 +2,7 @@
     {{-- Page Title --}}
     <x-slot:title>Home</x-slot:title>
 
-    <h1>Home Page</h1>
+    <h1 class="text-2xl font-semibold">Home Page</h1>
 
     <div class="mt-4">
         <h2 class="my-3 text-xl font-semibold">Available Jobs</h2>
