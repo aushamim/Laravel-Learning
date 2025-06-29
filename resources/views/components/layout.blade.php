@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -19,8 +19,7 @@
                 <span class="self-center text-2xl font-semibold whitespace-nowrap d">Laravel</span>
             </a>
 
-            <ul
-                class="font-medium flex flex-col mt-4 border md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+            <ul class="font-medium flex flex-col mt-4 border md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                 <li>
                     <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                 </li>
