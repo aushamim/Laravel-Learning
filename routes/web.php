@@ -4,7 +4,7 @@ use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $jobs = Job::with('employer')->get();
+    $jobs = Job::with('employer')->paginate(5);
 
     return view('home', ['jobs' => $jobs]);
 });
