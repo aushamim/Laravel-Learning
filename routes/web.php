@@ -4,19 +4,36 @@ use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $jobs = Job::with('employer')->paginate(5);
+    $jobs = Job::with('employer')->latest()->paginate(5);
 
     return view('home', ['jobs' => $jobs]);
 });
 
 Route::get('/jobs', function () {
-    $jobs = Job::with('employer')->paginate(5);
+    $jobs = Job::with('employer')->latest()->paginate(5);
 
-    return view('jobs', ['jobs' => $jobs]);
+    return view('jobs.index', ['jobs' => $jobs]);
+});
+
+Route::get('/jobs/create', function () {
+    return view('jobs.create');
+});
+
+Route::post('/jobs', function () {
+    // Validation
+
+    // Create
+    Job::create([
+        'title' => request('title'),
+        'salary' => request('salary'),
+        'employer_id' => 1,
+    ]);
+
+    return redirect('/jobs');
 });
 
 Route::get('/jobs/{id}', function ($id) {
-    return view('job', ['job' => Job::find($id)]);
+    return view('jobs.show', ['job' => Job::find($id)]);
 });
 
 Route::get('/about', function () {
