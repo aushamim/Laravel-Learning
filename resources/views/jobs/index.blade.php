@@ -1,7 +1,11 @@
 <x-layout>
     <x-slot:title>Job</x-slot:title>
 
-    <h1 class="text-2xl font-semibold">All Jobs</h1>
+    <div class="flex items-center justify-between">
+        <h1 class="text-2xl font-semibold">All Jobs</h1>
+
+        <x-button href="/jobs/create">Create Job</x-button>
+    </div>
 
     <div class="mt-4">
         <x-joblist :jobs="$jobs" />
