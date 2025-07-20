@@ -15,8 +15,8 @@ Route::get('/', [JobController::class, 'index']);
 //     Route::patch('/jobs/{job}', 'update');
 //     Route::delete('/jobs/{job}', 'delete');
 // });
-// Same ↑ ↓
-Route::resources('jobs', JobController::class);
+// * Same ↑ ↓
+Route::resource('jobs', JobController::class);
 
 Route::view('/about', 'about');
 Route::view('/contact', 'contact');
