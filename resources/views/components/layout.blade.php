@@ -32,6 +32,16 @@
                 <li>
                     <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
                 </li>
+                
+                {{-- Auth --}}
+                @guest
+                    <li>
+                        <x-nav-link href="/login" :active="request()->is('login')">Log In</x-nav-link>
+                    </li>
+                    <li>
+                        <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
+                    </li>
+                @endguest
             </ul>
         </div>
     </nav>
