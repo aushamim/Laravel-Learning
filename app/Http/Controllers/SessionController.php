@@ -29,7 +29,7 @@ class SessionController extends Controller
             ]);
         }
 
-        // regenetate session token
+        // regenetate session token (to protect from session hijaking)
         request()->session()->regenerate();
 
         // redirect
