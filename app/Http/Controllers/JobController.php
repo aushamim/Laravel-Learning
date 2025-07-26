@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\JobPosted;
 use App\Models\Job;
+use Illuminate\Support\Facades\Mail;
 
 class JobController extends Controller
 {
@@ -32,11 +34,14 @@ class JobController extends Controller
         ]);
 
         // Create
-        Job::create([
+        $job = Job::create([
             'title' => request('title'),
             'salary' => request('salary'),
             'employer_id' => 1,
         ]);
+
+        // Send Mail
+        Mail::to($job->employer->user)->send(new JobPosted($job));
 
         return redirect('/jobs');
     }
