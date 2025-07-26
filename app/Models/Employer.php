@@ -18,8 +18,6 @@ class Employer extends Model
 
     /**
      * Get the user that owns the Employer
-     *
-     * @return BelongsTo
      */
     public function user(): BelongsTo
     {

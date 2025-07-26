@@ -14,11 +14,11 @@ Route::controller(JobController::class)->group(function () {
     Route::get('/jobs/create', 'create')->middleware('auth');
 
     Route::get('/jobs/{job}', 'show');
-    
+
     Route::post('/jobs', 'store')->middleware('auth');
-    Route::get('/jobs/{job}/edit', 'edit')->middleware(['auth', 'can:edit-job,job']);
-    Route::patch('/jobs/{job}', 'update')->middleware(['auth', 'can:edit-job,job']);
-    Route::delete('/jobs/{job}', 'delete')->middleware(['auth', 'can:edit-job,job']);
+    Route::get('/jobs/{job}/edit', 'edit')->middleware(['auth', 'can:edit,job']);
+    Route::patch('/jobs/{job}', 'update')->middleware(['auth', 'can:edit,job']);
+    Route::delete('/jobs/{job}', 'delete')->middleware(['auth', 'can:edit,job']);
 });
 
 Route::view('/about', 'about');
