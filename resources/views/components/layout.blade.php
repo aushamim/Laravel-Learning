@@ -32,7 +32,7 @@
                 <li>
                     <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
                 </li>
-                
+
                 {{-- Auth --}}
                 @guest
                     <li>
@@ -42,6 +42,13 @@
                         <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
                     </li>
                 @endguest
+
+                @auth
+                    <form method="POST" action="/logout">
+                        @csrf
+                        <x-form.form-button>Log Out</x-form.form-button>
+                    </form>
+                @endauth
             </ul>
         </div>
     </nav>
