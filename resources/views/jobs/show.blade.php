@@ -17,7 +17,9 @@
         </div>
     </div>
 
-    <div class="mt-4">
-        <x-button href="/jobs/{{ $job['id'] }}/edit">Edit Job</x-button>
-    </div>
+    @can('edit-job', $job)
+        <div class="mt-4">
+            <x-button href="/jobs/{{ $job['id'] }}/edit">Edit Job</x-button>
+        </div>
+    @endcan
 </x-layout>
