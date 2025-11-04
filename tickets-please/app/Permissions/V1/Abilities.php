@@ -16,6 +16,8 @@ final class Abilities
     public const DeleteTicket = 'ticket:delete';
 
     // Own Tickets
+    public const CreateOwnTicket = 'ticket:owncreate';
+
     public const UpdateOwnTicket = 'ticket:own:update';
 
     public const DeleteOwnTicket = 'ticket:own:delete';
@@ -34,6 +36,8 @@ final class Abilities
      */
     public static function getAbilities(User $user)
     {
+        // ! Don't assign ['*']
+
         if ($user->is_manager) {
             return [
                 self::CreateTicket,
@@ -48,7 +52,7 @@ final class Abilities
             ];
         } else {
             return [
-                self::CreateTicket,
+                self::CreateOwnTicket,
                 self::UpdateOwnTicket,
                 self::DeleteOwnTicket,
             ];
